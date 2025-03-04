@@ -36,9 +36,11 @@ namespace RandomNumber
                     {
                         Console.WriteLine(" You guessed the number correctly.");
                     }
-                Console.WriteLine("random number" + randomNumber);
+                
             }
-           
+
+
+            Console.ReadKey();
         }
         }
 
