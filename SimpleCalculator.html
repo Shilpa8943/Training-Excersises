@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Simple Interest Calculator</h2>
+        <label>Principal Amount:</label><br>
+        <input type="number" id="principal" placeholder="Enter principal amount"><br>
+        <label>Time (Years):</label><br>
+        <input type="number" id="time" placeholder="Enter time in years"><br>
+        <button onclick="calculateInterest()">Calculate Interest</button>
+        <h3>Results:</h3>
+        <p id="interest"></p>
+        <p id="total"></p>
+        <p id="additionalInfo"></p>
+    </div>
+    <script>
+        function calculateInterest() {
+            let principal = parseFloat(document.getElementById("principal").value);
+            let time = parseFloat(document.getElementById("time").value);
+            let rate;
+            
+            if (principal < 500 || principal > 10000) {
+                document.getElementById("additionalInfo").innerText = "Principal amount must be between $500 and $10,000.";
+                return;
+            }
+            
+            if (principal < 1000) {
+                rate = 5;
+            } else if (principal >= 1000 && principal <= 5000) {
+                rate = 7;
+            } else {
+                rate = 10;
+            }
+            
+            let interest = (principal * rate * time) / 100;
+            let total = principal + interest;
+            
+            document.getElementById("interest").innerText = `Interest: ${interest.toFixed(2)}`;
+            document.getElementById("total").innerText = `Total Amount: ${total.toFixed(2)}`;
+            document.getElementById("additionalInfo").innerText = `Applied Interest Rate: ${rate}%`;
+        }
+    </script>
+</body>
+</html>

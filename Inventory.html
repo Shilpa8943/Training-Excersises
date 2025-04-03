@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inventory System</h2>
+        <input type="text" id="productName" placeholder="Enter product name">
+        <input type="number" id="productPrice" placeholder="Enter product price">
+        <input type="number" id="productQuantity" placeholder="Enter product quantity">
+        <button onclick="addProduct()">Add Product</button>
+        <h3>Inventory List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        class Product {
+            constructor(name, price, quantity) {
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+        }
+
+        let inventory = [];
+
+        function addProduct() {
+            let name = document.getElementById("productName").value.trim();
+            let price = document.getElementById("productPrice").value.trim();
+            let quantity = document.getElementById("productQuantity").value.trim();
+            
+            if (!name || !price || !quantity) return;
+            
+            let product = new Product(name, parseFloat(price), parseInt(quantity));
+            inventory.push(product);
+            displayInventory();
+            
+            document.getElementById("productName").value = "";
+            document.getElementById("productPrice").value = "";
+            document.getElementById("productQuantity").value = "";
+        }
+
+        function displayInventory() {
+            let tableBody = document.getElementById("inventoryList");
+            tableBody.innerHTML = "";
+            inventory.forEach(product => {
+                let row = `<tr>
+                    <td>${product.name}</td>
+                    <td>$${product.price.toFixed(2)}</td>
+                    <td>${product.quantity}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+    </script>
+</body>
+</html>
