@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Exercises</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            height: 80px;
+            background-color: rgb(181, 179, 179);
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            position: relative;
+            margin: 20px auto;
+            background-color: rgb(222, 222, 222);
+        }
+        .draggable {
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: grab;
+            
+        }
+        #drag-box {
+            background-color: green;
+            color: white;
+            position: absolute;
+            top: 50px;
+            left: 75px;
+        }
+        #drag-window {
+            background-color: blue;
+            color: white;
+            position: fixed;
+            bottom: 60px;
+            left: 60px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draggable Exercises</h1>
+    <div class="container">
+        <div id="drag-box" class="draggable">Drag Me Within Box</div>
+    </div>
+    <div id="drag-window" class="draggable">Drag Me Within Window</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: grid;
+            grid-template-rows: 60px 1fr 40px;
+            grid-template-columns: 200px 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar content"
+                "footer footer";
+            height: 100vh;
+        }
+        header {
+            grid-area: header;
+            background: #528652;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav {
+            grid-area: sidebar;
+            background: #686565;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+        }
+        main {
+            grid-area: content;
+            padding: 20px;
+            background: #dad1d1;
+            margin: 10px;
+        }
+        footer {
+            grid-area: footer;
+            background: #365f31;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grid Layout Example</h1>
+    </header>
+    <nav>
+        <p>Sidebar Navigation</p>
+    </nav>
+    <main>
+        <p>Main Content Area</p>
+    </main>
+    <footer>
+        &copy; 2024 Grid Layout Example
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        .nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .section {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #ddd;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        #unique {
+            color: red;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .descendant p {
+            font-style: italic;
+        }
+
+        ul > li:first-child {
+            font-weight: bold;
+        }
+
+        h2 + p {
+            font-style: italic;
+        }
+
+        h2 ~ p {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">CSS Selectors </div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="section"> <strong>Universal Selector Example</strong> <br> This paragraph is styled using the universal selector (*) which applies to all elements.</div>
+        <div class="section"> <strong>Type Selector Example</strong> <br> <b>Headings and Paragraphs</b> <br> This is an example of a paragraph styled by the type selector.</div>
+        <div class="section highlight"> <strong>Class Selector Example</strong> <br> This section is styled using a class selector named .highlight.</div>
+        <div class="section" id="unique"> <strong>ID Selector Example</strong> <br> This section is styled using an ID selector named #unique.</div>
+        <div class="section"> <strong>Attribute Selector Example</strong> <br> Type your name: <br> <input type="text" placeholder="Your Name"></div>
+        <div class="section descendant"> <strong>Descendant Selector Example</strong> <br> <p>This paragraph is inside a div and styled by a descendant selector (div p).</p> </div>
+        <div class="section"> <strong>Child Selector Example</strong>
+            <ul>
+                <li>First child item styled using child selector (ul > li).</li>
+                <li>Another child item in the list.</li>
+            </ul>
+        </div>
+        <div class="section"> <strong>Adjacent Sibling Selector Example</strong>
+            <h2>This is a heading</h2>
+            <p>This paragraph is styled as an adjacent sibling to the above heading (h2 + p).</p>
+        </div>
+
+        <div class="section"> <strong>General Sibling Selector Example</strong>
+            <h2>Another heading</h2>
+            <p>This paragraph is styled as a general sibling to the above heading (h2 ~ p).</p>
+            <p>Another sibling paragraph styled the same way.</p>
+        </div>
+
+        <footer style="text-align: center; padding-top: 10px; font-size: 12px;">
+            &copy; 2024 CSS Selectors 
+        </footer>
+    </div>
+
+    
+</body>
+</html>
